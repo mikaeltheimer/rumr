@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -38,7 +39,7 @@ gem 'jquery-rails'
 
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

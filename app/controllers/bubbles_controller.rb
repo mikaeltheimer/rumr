@@ -5,8 +5,11 @@ class BubblesController < ApplicationController
   # GET /bubbles
   # GET /bubbles.json
   def index
-    @bubbles = Bubble.all
-
+    if params[:tag]
+      @bubbles = Bubble.tagged_with(params[:tag])
+    else
+      @bubbles = Bubble.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bubbles }

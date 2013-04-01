@@ -8,6 +8,8 @@ Rumr::Application.routes.draw do
 
   root to: "static_pages#home"
 
+  get 'tags/:tag', to: 'bubbles#index', as: :tag
+
   get "static_pages/about"
 
   get "static_pages/contact"

@@ -10,6 +10,10 @@
   <%= @bubble.description %>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%= raw @bubble.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</p>
 
 <%= link_to 'Edit', edit_bubble_path(@bubble) %> |
 <%= link_to 'Back', bubbles_path %> |

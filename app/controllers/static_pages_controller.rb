@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	@bubble = Bubble.new
+    @bubbles = Bubble.all
     @rumor = Rumor.new
     respond_to do |format|
       format.html # new.html.erb

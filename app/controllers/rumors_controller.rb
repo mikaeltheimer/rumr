@@ -1,4 +1,7 @@
 class RumorsController < ApplicationController
+  
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy]
+
   # GET /rumors
   # GET /rumors.json
   def index

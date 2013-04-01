@@ -5,7 +5,19 @@
 		<%= link_to "Sign up!", new_user_registration_path, class: "btn btn-primary btn-large" %>
 	</div>
 <% else %>
-	<h1>Welcome to Rumr</h1>
+	<div class="row">
+		<aside class="span6">
+			<h1>Welcome to Rumr</h1>
+		</aside>
+		<aside class="span6">
+			<h3>Browse rumors in: </h3>
+			<div id="tag_cloud">
+				<% tag_cloud Bubble.tag_counts, %w[s m l] do |tag, css_class| %>
+					<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+				<% end %>
+			</div>
+		</aside>
+	</div>
 	<div class="row">
 		<aside class="span4">
 			<h3>Post a new Rumr</h3>
@@ -18,5 +30,6 @@
 						<li><%= link_to "Bubble #{n}", '#' %></li>
 				<% end %>
 			</ul>
+		</aside>
 	</div>
 <% end %>

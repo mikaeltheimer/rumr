@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
+    <th>Tags</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,10 +13,12 @@
   <tr>
     <td><%= link_to bubble.name, bubble %></td>
     <td> | <%= bubble.description %></td>
+    <td>| <%= raw bubble.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Bubble', new_bubble_path %>
+<p><%= link_to 'All Bubble', bubbles_path %>
+ | <%= link_to 'New Bubble', new_bubble_path %></p>
