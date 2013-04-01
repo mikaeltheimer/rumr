@@ -1,4 +1,4 @@
-== Welcome to Rails
+== The Rumr project
 
 This is a project I'm working on.
 I'm very new to Rail (and to programming in general for that matter), and it's reflected in the structure of my code...
@@ -7,4 +7,4 @@ BUT, this is a pretty cool project, the app I have in mind shouldn't be too hard
 
 It's called Rumr, and it basically would allow you to stay up to date on pretty much any subject you're interested in.
 
-If you want to know more about the concept, and help me bring it to life, contact me at mikaeltheim@gmail.com
+If you want to know more about the concept, and help me bring it to life, contact me at <a href="mailto:mikaeltheim@gmail.com">mikaeltheim@gmail.com</a>.
