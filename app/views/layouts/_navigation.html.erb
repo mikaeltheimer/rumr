@@ -1,0 +1,55 @@
+<%= link_to "Home", root_path, :class => 'brand' %>
+<ul class="nav">
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>
+    </li>
+  <% end %>
+
+  <li id="fat-menu" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Bubbles <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "My bubbles", '#' %></li>
+        <li><%= link_to "Trending bubbles", '#' %></li>
+        <li class="divider"></li>
+        <li><%= link_to "New Bubble", new_bubble_path %></li>
+      </ul>
+    </li>
+
+    <li id="fat-menu" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Rumrs <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "My Rumrs", '#' %></li>
+        <li><%= link_to "Latest rumrs", '#' %></li>
+        <li class="divider"></li>
+        <li><%= link_to "New Rumr", new_rumor_path %></li>
+      </ul>
+    </li>
+
+
+  <% if user_signed_in? %>
+    <li id="fat-menu" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <%= current_user.username %> <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Profile", '#' %></li>
+        <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
+        <li class="divider"></li>
+        <li>
+          <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+        </li>
+      </ul>
+    </li>
+  <% else %>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+  <% end %>
+</ul>

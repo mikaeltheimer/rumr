@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @bubble.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @bubble.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_bubble_path(@bubble) %> |
+<%= link_to 'Back', bubbles_path %> |
+<%= link_to 'Destroy', @bubble, method: :delete, data: { confirm: 'Are you sure?' } %>

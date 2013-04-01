@@ -1,0 +1,22 @@
+<h1>Listing bubbles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bubbles.each do |bubble| %>
+  <tr>
+    <td><%= link_to bubble.name, bubble %></td>
+    <td> | <%= bubble.description %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bubble', new_bubble_path %>

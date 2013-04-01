@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @rumor.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @rumor.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_rumor_path(@rumor) %> |
+<%= link_to 'Back', rumors_path %>
