@@ -11,6 +11,14 @@
 </p>
 
 <p>
+  <b>Rumors:</b>
+  <% @bubble.rumors.each do |rumor| %>
+  	<p><%= rumor.title %></p>
+  	<p><%= rumor.content %></p>
+  <% end %>
+</p>
+
+<p>
   <b>Tags:</b>
   <%= raw @bubble.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </p>

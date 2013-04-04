@@ -28,6 +28,7 @@ class RumorsController < ApplicationController
   # GET /rumors/new.json
   def new
     @rumor = Rumor.new
+    @bubbles = Bubble.all
 
     respond_to do |format|
       format.html # new.html.erb

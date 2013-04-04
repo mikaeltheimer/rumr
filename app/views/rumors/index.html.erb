@@ -11,6 +11,7 @@
 
 <% @rumors.each do |rumor| %>
   <tr>
+    <td>| <%= raw rumor.bubbles.map(&:name).map { |t| link_to t, bubble_path(t) }.join(', ') %></td>
     <td><%= rumor.title %></td>
     <td><%= rumor.content %></td>
     <td><%= link_to 'Show', rumor %></td>

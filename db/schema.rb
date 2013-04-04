@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401223454) do
+ActiveRecord::Schema.define(:version => 20130404000514) do
 
   create_table "bubbles", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(:version => 20130401223454) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "bubbles_rumors", :id => false, :force => true do |t|
+    t.integer "bubble_id"
+    t.integer "rumor_id"
+  end
+
+  add_index "bubbles_rumors", ["bubble_id"], :name => "index_bubbles_rumors_on_bubble_id"
+  add_index "bubbles_rumors", ["rumor_id"], :name => "index_bubbles_rumors_on_rumor_id"
+
+  create_table "bubblings", :force => true do |t|
+    t.integer  "bubble_id"
+    t.integer  "rumor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bubblings", ["bubble_id"], :name => "index_bubblings_on_bubble_id"
+  add_index "bubblings", ["rumor_id"], :name => "index_bubblings_on_rumor_id"
 
   create_table "rumors", :force => true do |t|
     t.string   "title"
