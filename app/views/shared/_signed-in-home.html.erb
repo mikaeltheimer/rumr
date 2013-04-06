@@ -1,19 +1,23 @@
 <div class="row">
 	<aside class="span6">
-		<h3>Your bubbles' latest rumrs</h3>
-		<ul class="bubbles">
-			<% @bubbles.each do |bubble| %>
-					<li><%= link_to bubble.name, bubble %></li>
-					<ol class="rumors">
-						<% bubble.rumors.each do |rumor| %>
-							<li><%= link_to rumor.title, rumor %> | <%= rumor.content %></li>
-						<% end %>
-					</ol>
-			<% end %>
-		</ul>
+		<div class="section-title">
+			<h3>Your bubbles' latest rumrs</h3>
+		</div>
+			<ul class="feed">
+				<% @bubbles.each do |bubble| %>
+						<li><%= bubble.name %> | <%= link_to "View all rumors", bubble %></li>
+						<ol class="subfeed">
+							<% bubble.rumors.each do |rumor| %>
+								<li><%= link_to rumor.title, rumor %> | <%= rumor.content %></li>
+							<% end %>
+						</ol>
+				<% end %>
+			</ul>
 	</aside>
 	<aside class="span4">
-		<h3>Post a new Rumr</h3>
+		<div class="section-title">
+			<h3>Post a new Rumr</h3>
+		</div>
 		<%= render 'rumors/form' %>
 	</aside>
 </div>

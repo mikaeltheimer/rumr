@@ -129,16 +129,34 @@ footer {
 	}
 }
 
-/* Bubbles */
+.section-title {
+	border: 1px solid black;
+	text-align: center;
+}
 
-.bubbles {
+.feed {
 	list-style: none;
 	margin: 10px 0;
-
 	li {
+		font-size: 1.2em;
+		font-weight: bold;
 		padding: 10px 0;
 		border-top: 1px solid #e8e8e8;
-		font-style: bold;
+		a{
+			font-weight: normal;
+		}
+	}
+}
+
+.subfeed {
+	list-style: none;
+	margin: 10px 0;
+	list-style: none;
+	li {
+		font-size: 1em;
+		font-weight: normal;
+		padding-left: 20px;
+		border-top: 1px solid #e8e8e8;
 	}
 }
 

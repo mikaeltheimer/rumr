@@ -12,10 +12,11 @@
 
 <p>
   <b>Rumors:</b>
-  <% @bubble.rumors.each do |rumor| %>
-  	<p><%= rumor.title %></p>
-  	<p><%= rumor.content %></p>
-  <% end %>
+  <ol class="feed">
+    <% @bubble.rumors.each do |rumor| %>
+    	<li><%= link_to rumor.title, rumor %> | <%= rumor.content %></li>
+    <% end %>
+  </ol>
 </p>
 
 <p>
