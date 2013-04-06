@@ -148,6 +148,12 @@ footer {
 
 /* forms */
 
+.ContentCountdown {
+  display: block;
+  padding-left: 10px;
+  color: $grayLight;
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;

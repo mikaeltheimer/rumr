@@ -2,13 +2,18 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-  	<%= f.input :bubble_tokens, label: "Bubbles",
-  															"data-pre" => @rumor.bubbles.map(&:attributes).to_json %>
+    <%= f.input :bubble_tokens, label: "This rumor is about...",
+                                data: {pre: @rumor.bubbles.map(&:attributes).to_json} %>
+    <p>No existing Bubble for your rumor? <%= link_to "Create a new Bubble", new_bubble_path, class: "btn btn-small btn-primary" %></p>
+
+    <%= f.input :title, label: "Headline (50 char max)" %>
+    <%= f.input :content, label: "Share what you know..." %>
+    <span class="ContentCountdown"></span>
+  	
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, value: "Post rumor",
+                          class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
