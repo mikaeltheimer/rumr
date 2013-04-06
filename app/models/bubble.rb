@@ -7,6 +7,6 @@ class Bubble < ActiveRecord::Base
 
   # has_and_belongs_to_many :rumors, dependent: destroy
 
-  validates :description, presence: true, length: { maximum: 300 }
+  validates :description, length: { maximum: 300 }
   validates :name, presence: true, length: { maximum: 50 }
 end

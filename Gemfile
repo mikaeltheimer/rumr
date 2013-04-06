@@ -5,6 +5,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

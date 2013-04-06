@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @bubbles = Bubble.all
+    @bubbles = Bubble.where("name LIKE ?", "%#{params[:q]}%")
     @rumor = Rumor.new
     respond_to do |format|
       format.html # new.html.erb

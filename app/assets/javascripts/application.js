@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function() {
+	$("#rumor_bubble_tokens").tokenInput("/bubbles.json", {
+		crossDomain: false,
+		prePopulate: $("#rumor_bubble_tokens").data("pre"),
+		theme: "facebook"
+	});
+});

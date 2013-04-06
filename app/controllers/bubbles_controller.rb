@@ -7,12 +7,14 @@ class BubblesController < ApplicationController
   def index
     if params[:tag]
       @bubbles = Bubble.tagged_with(params[:tag])
+    elsif params[:q]
+      @bubbles = Bubble.where("name LIKE ?", "%#{params[:q]}%")
     else
       @bubbles = Bubble.all
     end
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @bubbles }
+      format.json { render json: @bubbles.map(&:attributes) }
     end
   end
 
