@@ -1,0 +1,27 @@
+<div class="row">
+	<aside class="span6">
+		<h3>Your bubbles' latest rumrs</h3>
+		<ul class="bubbles">
+			<% @bubbles.each do |bubble| %>
+					<li><%= link_to bubble.name, bubble %></li>
+					<ol class="rumors">
+						<% bubble.rumors.each do |rumor| %>
+							<li><%= rumor.title %> | <%= rumor.content %></li>
+						<% end %>
+					</ol>
+			<% end %>
+		</ul>
+	</aside>
+	<aside class="span4">
+		<h3>Post a new Rumr</h3>
+		<%= render 'rumors/form' %>
+	</aside>
+</div>
+<div class="span12">
+	<h3>Browse rumors in: </h3>
+	<div id="tag_cloud">
+		<% tag_cloud Bubble.tag_counts, %w[s m l] do |tag, css_class| %>
+			<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+		<% end %>
+	</div>
+</div>
