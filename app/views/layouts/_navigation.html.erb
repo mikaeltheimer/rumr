@@ -1,14 +1,5 @@
 <%= link_to "Rumr", root_path, id: 'brand' %>
 <ul class="nav">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>
-    </li>
-  <% end %>
 
   <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -34,8 +25,17 @@
         <li><%= link_to "New Rumr", new_rumor_path %></li>
       </ul>
     </li>
+</ul>
+<%= form_tag bubbles_path, class: "navbar-search", :method => :get do %>
+  <p>
+    <%= text_field_tag :search,
+                       params[:search],
+                       placeholder: "Search for any subject",
+                       class: "search-query span3" %>
+  </p>
+<% end %>
 
-
+<ul class="nav pull-right">
   <% if user_signed_in? %>
     <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -52,5 +52,14 @@
     </li>
   <% else %>
     <li><%= link_to "Sign in", new_user_session_path %></li>
+  <% end %>
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>
+    </li>
   <% end %>
 </ul>
