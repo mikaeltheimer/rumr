@@ -6,6 +6,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'jquery-rails'
+gem 'sunspot_rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,6 +34,7 @@ end
 
 group :development do
 	gem 'annotate'
+	gem 'sunspot_solr'
 end
 
 gem 'jquery-rails'

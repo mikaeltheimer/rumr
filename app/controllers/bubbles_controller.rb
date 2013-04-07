@@ -5,10 +5,15 @@ class BubblesController < ApplicationController
   # GET /bubbles
   # GET /bubbles.json
   def index
+    @search = Bubble.search do
+      fulltext params[:search]
+    end
     if params[:tag]
       @bubbles = Bubble.tagged_with(params[:tag])
     elsif params[:q]
       @bubbles = Bubble.where("name LIKE ?", "%#{params[:q]}%")
+    elsif params[:search]
+      @bubbles = @search.results
     else
       @bubbles = Bubble.all
     end

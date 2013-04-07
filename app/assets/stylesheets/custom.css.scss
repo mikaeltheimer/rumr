@@ -73,9 +73,16 @@ p {
 	}
 }
 
+.browse {
+	margin-top: 10px;
+}
+
 #tag_cloud {
 	width: 1170;
 	line-height: 1.6em;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid #e8e8e8;
 	.s { font-size: 0.8em; }
 	.m { font-size: 1.2em; }
 	.l { font-size: 1.8em; }
@@ -164,6 +171,18 @@ footer {
 	display: block;
 }
 
+/* Bubbles */
+
+.bubble-table {
+	td {
+		font-size: 1.2em;
+		padding: 10px 0;
+		border: 1px solid #e8e8e8;
+		text-align: center;
+		padding: 10px;
+	}
+}
+
 /* forms */
 
 .ContentCountdown {
@@ -189,6 +208,10 @@ input {
 		list-style: none;
 		margin: 0 0 18px 0;
 	}
+}
+
+.searchfield {
+
 }
 
 .field_with_errors {

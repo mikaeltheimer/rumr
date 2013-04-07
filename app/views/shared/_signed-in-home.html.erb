@@ -1,5 +1,5 @@
 <div class="row">
-	<aside class="span6">
+	<aside class="span8">
 		<div class="section-title">
 			<h3>Your bubbles' latest rumrs</h3>
 		</div>
@@ -16,16 +16,23 @@
 	</aside>
 	<aside class="span4">
 		<div class="section-title">
-			<h3>Post a new Rumr</h3>
+			<h3>Browse rumors</h3>
 		</div>
-		<%= render 'rumors/form' %>
-	</aside>
-</div>
-<div class="span12">
-	<h3>Browse rumors in: </h3>
-	<div id="tag_cloud">
+		<div class="browse">
+			<%= form_tag bubbles_path, :method => :get do %>
+			  <p>
+			    <%= text_field_tag :search,
+			    									 params[:search],
+			    									 placeholder: "Search for any subject you're interested in" %>
+			    <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+			  </p>
+			<% end %>
+		</div>
+		<h4>Or search by categories: </h4>
+		<div id="tag_cloud">
 		<% tag_cloud Bubble.tag_counts, %w[s m l] do |tag, css_class| %>
 			<%= link_to tag.name, tag_path(tag.name), class: css_class %>
 		<% end %>
 	</div>
+	</aside>
 </div>

@@ -11,6 +11,8 @@ class Rumor < ActiveRecord::Base
   validates :bubbles, presence: true
   # validates :bubble_id, presence: true
 
+  default_scope order: 'rumors.created_at DESC'
+
   def bubble_tokens=(ids)
     self.bubble_ids = ids.split(",")
   end

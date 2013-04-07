@@ -1,24 +1,40 @@
-<h1>Listing bubbles</h1>
+<h1>Bubbles</h1>
 
-<table>
+<div>
+  <%= form_tag bubbles_path, :method => :get do %>
+      <%= text_field_tag :search,
+                         params[:search],
+                         placeholder: "Search for any subject you're interested in" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>    
+  <% end %>
+</div>
+
+<table class="bubble-table">
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Tags</th>
-    <th></th>
+    <th>Latest Rumor</th>
     <th></th>
   </tr>
 
 <% @bubbles.each do |bubble| %>
   <tr>
     <td><%= link_to bubble.name, bubble %></td>
-    <td> | <%= bubble.description %></td>
-    <td>| <%= raw bubble.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+    <td><%= bubble.description %></td>
+    <td>
+      <%= raw bubble.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </td>
+    <% if bubble.rumors.empty? %>
+      <td>No rumors yet. <%= link_to "Share a rumor",
+            new_rumor_path, class: "btn btn-mini btn-primary" %></td>
+    <% else %>
+      <td><%= link_to bubble.rumors.last.title, bubble.rumors.last %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
 <br />
 
-<p><%= link_to 'All Bubble', bubbles_path %>
+<p><%= link_to 'All Bubbles', bubbles_path %>
  | <%= link_to 'New Bubble', new_bubble_path %></p>
