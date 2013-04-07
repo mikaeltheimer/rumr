@@ -1,4 +1,7 @@
 Rumr::Application.routes.draw do
+  resources :search_suggestions
+
+
   resources :rumors
 
 
